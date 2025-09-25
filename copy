@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechService Pro - Mantenimiento y Servicio Tecnológico</title>
+    <link rel="stylesheet" href="css/estiloM.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/carrusel.css">
+    <link rel="shortcut icon" href="img/logoofical.png" />
+</head>
+
+<body>
+    <?php
+    include("./components/menu.php");
+    ?>
+    <?php
+    include("./components/carrusel.php");
+    ?>
+    <main>
+
+
+        <section id="servicios" class="services">
+            <div class="container">
+                <h2>Nuestros servicios</h2>
+                <div class="service-container">
+                    <div class="service-item">
+                        <h3>Servicio 1</h3>
+                        <p>Descripción breve del servicio 1.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Servicio 2</h3>
+                        <p>Descripción breve del servicio 2.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Servicio 3</h3>
+                        <p>Descripción breve del servicio 3.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+       <!-- Agrega/quita secciones según necesites -->
+<a href="contacto.php" class="nav-link" data-section="contacto">
+    <svg><!-- icono --></svg>
+    <span>Contacto</span>
+</a>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 TechService Pro. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/carrusel.js"></script>
+</body>
+
+</html>

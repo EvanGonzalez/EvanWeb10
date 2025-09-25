@@ -1,0 +1,386 @@
+/* ================================
+   VARIABLES CSS (FÁCIL MANTENIMIENTO)
+   ================================ */
+:root {
+    /* Colores principales */
+    --primary-color: #2563eb;
+    --primary-hover: #1d4ed8;
+    --secondary-color: #64748b;
+    --accent-color: #f59e0b;
+    
+    /* Colores de fondo */
+    --bg-primary: #333333;
+    --bg-secondary: #f8fafc;
+    --bg-dark: #1e293b;
+    
+    /* Colores de texto */
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --text-light: #ffffff;
+    
+    /* Espaciado */
+    --nav-height: 90px;
+    --container-padding: 1rem;
+    --border-radius: 8px;
+    
+    /* Transiciones */
+    --transition-fast: 0.2s ease;
+    --transition-medium: 0.3s ease;
+    
+    /* Sombras */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+/* ================================
+   NAVBAR PRINCIPAL
+   ================================ */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #333333;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+    box-shadow: var(--shadow-sm);
+    z-index: 1000;
+    transition: all var(--transition-medium);
+}
+
+.navbar.scrolled {
+    box-shadow: var(--shadow-md);
+    border-bottom-color: rgba(226, 232, 240, 1);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--nav-height);
+}
+
+/* ================================
+   LOGO
+   ================================ */
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 1.25rem;
+    transition: transform var(--transition-fast);
+}
+
+.nav-logo:hover {
+    transform: scale(1.02);
+}
+
+.logo-img {
+    width: 100%;
+    height: 60px;
+    border-radius: var(--border-radius);
+    object-fit: cover;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.logo-text {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ================================
+   MENÚ DE NAVEGACIÓN
+   ================================ */
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    transition: all var(--transition-fast);
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left var(--transition-medium);
+}
+
+.nav-link:hover::before {
+    left: 100%;
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+    background-color: rgba(37, 99, 235, 0.1);
+    transform: translateY(-2px);
+}
+
+.nav-link.active {
+    color: var(--primary-color);
+    background-color: rgba(37, 99, 235, 0.15);
+}
+
+.nav-icon {
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Botón de iniciar sesión especial */
+.login-btn {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+    color: var(--text-light) !important;
+    font-weight: 600;
+    box-shadow: var(--shadow-sm);
+}
+
+.login-btn:hover {
+    background: linear-gradient(135deg, var(--primary-hover), var(--primary-color));
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* ================================
+   MENÚ MÓVIL
+   ================================ */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 0.4rem;
+    border-radius: var(--border-radius);
+    transition: background-color var(--transition-fast);
+}
+
+.nav-toggle:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.bar {
+    width: 24px;
+    height: 3px;
+    background-color: var(--text-primary);
+    margin: 2px 0;
+    transition: all var(--transition-medium);
+    border-radius: 2px;
+}
+
+/* Animación del menú hamburguesa */
+.nav-toggle.active .bar:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.nav-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.active .bar:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* ================================
+   CONTENIDO PRINCIPAL
+   ================================ */
+.main-content {
+    margin-top: var(--nav-height);
+    min-height: calc(100vh - var(--nav-height));
+}
+
+.content-placeholder {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem var(--container-padding);
+    text-align: center;
+}
+
+.content-placeholder h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.content-placeholder p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ================================
+   RESPONSIVE DESIGN
+   ================================ */
+@media screen and (max-width: 768px) {
+    .nav-toggle {
+        display: flex;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: var(--nav-height);
+        flex-direction: column;
+        background-color: var(--bg-primary);
+        width: 100%;
+        text-align: center;
+        transition: left var(--transition-medium);
+        box-shadow: var(--shadow-lg);
+        padding: 1rem 0;
+        gap: 0;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .nav-item {
+        width: 100%;
+    }
+    
+    .nav-link {
+        padding: 1rem;
+        justify-content: center;
+        border-radius: 0;
+        margin: 0 1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .nav-link:last-child {
+        margin-bottom: 0;
+    }
+    
+    .content-placeholder h1 {
+        font-size: 2rem;
+    }
+    
+    .nav-container {
+        padding: 0 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    :root {
+        --nav-height: 60px;
+    }
+    
+    .nav-logo {
+        font-size: 1.1rem;
+    }
+    
+    .logo-img {
+        width: 85px;
+        height: 35px;
+    }
+    
+    .content-placeholder {
+        padding: 1.5rem 1rem;
+    }
+    
+    .content-placeholder h1 {
+        font-size: 1.75rem;
+    }
+}
+
+/* ================================
+   TEMA OSCURO (OPCIONAL)
+   ================================ */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-primary: #1e293b;
+        --bg-secondary: #0f172a;
+        --text-primary: #f1f5f9;
+        --text-secondary: #94a3b8;
+    }
+    
+    .navbar {
+        border-bottom-color: rgba(51, 65, 85, 0.8);
+    }
+    
+    .navbar.scrolled {
+        border-bottom-color: rgba(51, 65, 85, 1);
+    }
+    
+    .nav-toggle:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+}
+
+/* ================================
+   ANIMACIONES Y EFECTOS
+   ================================ */
+@keyframes slideInDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.navbar {
+    animation: slideInDown var(--transition-medium);
+}
+
+/* Efecto de carga suave */
+.nav-link {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.nav-link:nth-child(1) { animation-delay: 0.1s; }
+.nav-link:nth-child(2) { animation-delay: 0.2s; }
+.nav-link:nth-child(3) { animation-delay: 0.3s; }
+.nav-link:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
